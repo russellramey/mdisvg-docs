@@ -1,0 +1,48 @@
+// Buttons
+a.button,
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"]
+    color: #fff
+    display: inline-block
+    font-size: 12px
+    line-height: 1em
+    cursor: pointer
+    padding: 15px 25px 15px
+    background: $light-blue
+    border: 0
+    text-align: center
+    text-transform: uppercase
+    appearance: none
+    -webkit-appearance: none
+    -moz-appearance: none
+    transition: all .25s ease
+    -moz-transition: all .25s ease
+    -webkit-transition: all .25s ease
+    outline: 0
+    border-radius: 8px
+    font-weight: bold
+    position: relative
+    bottom: 0
+
+    &:hover
+        background: $dark-blue
+        color: #fff
+        text-decoration: none
+        transform: scale(1.025)
+        bottom: 4px
+        box-shadow: 10px 10px 20px rgba(0,0,0,.35)
+
+    &:disabled
+        background: #ccc
+        -webkit-appearance: none
+        cursor: default
+
+    &.button-light
+        background: #ffffff
+        color: #555555
+
+        &:hover
+            background: darken(#fff, 10)
