@@ -29,21 +29,21 @@
         h4 Inline SVG
         p If you want to use the icon as an inline svg, you can use the javascript loader function. This is an easy way to automatically load multiple icons dynamically.
         ul 
-            li First, create an HTML element and give it a #[i data-mdiIcon] attribute set to icon name from the MDI icon library.
-            li Optionally, you can set a #[i data-mdiColor] attribute with a hex color code.
+            li First, create an HTML element and give it a #[i data-mdisvg] attribute set to icon name from the MDI icon library.
+            li Optionally, you can set a #[i data-mdicolor] attribute with a hex color code.
             li Lastly, include a #[i script] tag in the body of the document, with the source attribute set to the #[i /loader] endpoint.
         pre
             code
-                span.comment // Element with data-mdiIcon attribute, data-mdiColor attribute is optional
+                span.comment // Element with data-mdisvg attribute, data-mdicolor attribute is optional
                 br
-                span.code &lt;span data-mdiIcon="account" data-mdiColor="3399cc"&gt;&lt;/span&gt;
+                span.code &lt;span data-mdisvg="account" data-mdicolor="3399cc"&gt;&lt;/span&gt;
                 br
                 br
                 span.comment // Include the loader script within the body
                 br
                 span.code &lt;script src="http://localhost:3000/loader"&gt;&lt;/script&gt;
         
-        p The loader function will find all elements that contain a #[i data-mdiIcon] attribute, create a JSON object of icon elements, and make a request to the api. The contents of the #[i data-mdiIcon] element will be replaced with the inline svg code returned. From there it can be manipulated directly via css or javascript, allowing you to change size, colors, or add animation/transitions.
+        p The loader function will find all elements that contain a #[i data-mdisvg] attribute, create a JSON object of icon elements, and make a request to the api. The contents of the #[i data-mdicolor] element will be replaced with the inline svg code returned. From there it can be manipulated directly via css or javascript, allowing you to change size, colors, or add animation/transitions.
         h5 Inline SVG example:
         <span data-mdisvg="cog" data-mdicolor="000000"></span>
         <span data-mdisvg="comment" data-mdicolor="e50000"></span>
@@ -64,14 +64,12 @@
                 br
                 span [{
                 br
-                span &nbsp;&nbsp;&nbsp; "type": "element", #[br]
-                span &nbsp;&nbsp;&nbsp; "tagName": "glyph", #[br]
-                span &nbsp;&nbsp;&nbsp; "properties": { #[br]
-                span &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "glyph-name": "account", #[br]
+                span &nbsp;&nbsp;&nbsp; "name": "account" #[br]
+                span &nbsp;&nbsp;&nbsp; "attributes": { #[br]
+                span &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "color": "000000", #[br]
                 span &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "unicode": "#xf0004;", #[br]
-                span &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "d": "M256 363q35 0 60 -25t25 -60.5t-25 -60.5t-60 -25t-60 25t-25 60.5t25 60.5t60 25zM256 149q46 0 85.5 -11.5t62.5 -31t23 -42.5v-43h-342v43q0 23 23 42.5t62.5 31t85.5 11.5z" #[br]
+                span &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "path": "M256 363q35 0 60 -25t25 -60.5t-25 -60.5t-60 -25t-60 25t-25 60.5t25 60.5t60 25zM256 149q46 0 85.5 -11.5t62.5 -31t23 -42.5v-43h-342v43q0 23 23 42.5t62.5 31t85.5 11.5z" #[br]
                 span &nbsp;&nbsp;&nbsp; } #[br]
-                span &nbsp;&nbsp;&nbsp; "color": "000000", #[br]
                 span &nbsp;&nbsp;&nbsp; "rendered": "&lt;svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"100\" height=\"100\" viewBox=\"0 64.7273 512 448.462\"&gt;&lt;g transform=\"scale(1,-1) translate(0, -480.36365)\"&gt;&lt;path data-glyph=\"account\" fill=\"#000000\" d=\"M256 363q35 0 60 -25t25 -60.5t-25 -60.5t-60 -25t-60 25t-25 60.5t25 60.5t60 25zM256 149q46 0 85.5 -11.5t62.5 -31t23 -42.5v-43h-342v43q0 23 23 42.5t62.5 31t85.5 11.5z\"/&gt;&lt;/g&gt;&lt;/svg&gt;"
                 br
                 span }, ...]
