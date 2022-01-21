@@ -1,31 +1,32 @@
 #endpoints
     .container.content-section
         h2.section-title Endpoints
-        p There are two primary endpoints, both endpoints use the icon name from Material Design Icons library to request icons. This API only supports GET requests.
-        h4 /i/icon-name
+        p There are two primary endpoints, both endpoints use the icon name from Material Design Icons library to request icons. This API only supports GET requests. Endpoints have a versioning parameter to determine the MDI release to use for the icons source. Read more about endpoint #[a(href="#versions") versions].
+        h4 /v1/i/icon-name
         pre
             code
                 span.comment // Basic request
                 br
-                span.code http://localhost:3000/i/ICON-NAME
+                span.code http://localhost:3000/v1/i/ICON-NAME
                 
         p #[i icon-name] is the class name that MDI uses in its library. Read more about the icons available in the Material Design Icons #[a(href="https://materialdesignicons.com/" target="_blank") documentation].
         
         br
-        h4 /json?data=json-object-string
+        h4 /v1/json?data=json-object-string
         p The format for a json request is a bit different. You can get multiple icons by passing in a JSON object string as the <i>data</i> parameter. The JSON object needs to be an array of icon objects with two properties:
         ul
-            li <i>icon</i>: The icon name (required)
-            li <i>color</i>: Icon color by hex value (optional)
+            li <i>icon</i>: The icon name (ex. 'account', required)
+            li <i>color</i>: Icon color by hex value (ex. '3399cc', optional)
+            li <i>size</i>: Icon size in pixels via integer (ex. '100', optional)
         pre
             code
                 span.comment // JSON icon object structure
                 br
-                span.code [{ 'icon': 'icon-name', 'color': 'hex-code' }]
+                span.code [{ 'icon': 'icon-name', 'color': 'hex-code', 'size': 144 }, ...ect]
                 br
                 br
                 span.comment // Request multiple icons
                 br
-                span.code http://localhost:3000/json?data=JSON-OBJECT-STRING
+                span.code http://localhost:3000/v1/json?data=JSON-OBJECT-STRING
         
         p It is important to note, the JSON object needs to be as a string (stringified).
