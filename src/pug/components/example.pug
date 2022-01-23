@@ -11,7 +11,7 @@
             code
                 span.comment // Image source
                 br
-                span.code &lt;img src="http://localhost:3000/v1/i/account" width="100" height="100" /&gt;
+                span.code &lt;img src="https://api.mdisvg.com/v1/i/account" width="100" height="100" /&gt;
                 br
                 
         p Change the fill color of the icon. You can use the #[i color] parameter with any hex value to return an icon with a different color. The #[i color] parameter supports a valid color hex code.
@@ -21,12 +21,12 @@
                 br
                 span.comment // Change the size by passing the #[i size] parameter
                 br
-                span.code &lt;img src="http://localhost:3000/v1/i/account?color="3399cc&size=144"" width="auto" height="auto" /&gt;
+                span.code &lt;img src="https://api.mdisvg.com/v1/i/account?color="3399cc&size=144"" width="auto" height="auto" /&gt;
                 br
                 
         h5 Embedded SVG example:
         p
-            img(src="http://localhost:3000/v1/i/account" width="100" height="100")
+            img(src="https://api.mdisvg.com/v1/i/account" width="100" height="100")
         br
         h4 Inline SVG
         p If you want to use the icon as an inline svg, you can use the javascript loader function. This is an easy way to automatically load multiple icons dynamically.
@@ -48,7 +48,7 @@
                 br
                 span.comment // Include the loader script within the body
                 br
-                span.code &lt;script src="http://localhost:3000/loader"&gt;&lt;/script&gt;
+                span.code &lt;script src="https://api.mdisvg.com/loader"&gt;&lt;/script&gt;
         
         p The loader function will find all elements that contain a #[i data-mdisvg] attribute, create a JSON object of icon elements, and make a request to the api. The contents of the #[i data-mdicolor] element will be replaced with the inline svg code returned. From there it can be manipulated directly via css or javascript, allowing you to change size, colors, or add animation/transitions.
         h5 Inline SVG example:
@@ -64,7 +64,7 @@
             code
                 span.comment // Make a GET request
                 br
-                span.code http://localhost:3000/v1/json?data=[{"icon":"account","color":"000000"},{"icon":"account-plus","color":"e50000"},{"icon":"account-cog","color":"3399cc"}]
+                span.code https://api.mdisvg.com/v1/json?data=[{"icon":"account","color":"000000"},{"icon":"account-plus","color":"e50000"},{"icon":"account-cog","color":"3399cc"}]
                 br
                 br
                 span.comment // JSON response
