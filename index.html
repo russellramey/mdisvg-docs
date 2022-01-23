@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="FontAwesome as SVG is a restful api that allows you to use any Font Awesome Free icon with a simple HTTP GET request. Icons are available by using the Font Awesome style and icon name as the URI endpoint. If you are not familiar with Font Awesome, it is a very popular library for icons, typically used by importing web fonts and included stylesheets.">
+    <meta name="keywords" content="api, rest api, restful api, font awesome, fontawesome, svg, image, icon, icons, json, request, embed, link, include, get, serve, library">
+    <title>MDISVG - Material Design Icons as SVG</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/svg" href="https://api.mdisvg.com/v1/i/crop-free?color=fff">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="hero"> 
+        <div class="wallpaper"></div>
+        <div class="overlay"></div>
+        <div class="hero-content">
+          <h1> <span class="brand"> <a href="https://materialdesignicons.com/" target="_blank">Material Design Icons</a></span><span> as svg</span></h1>
+          <h3>Material Design Icons on demand. <br> Get any icon as an SVG with no dependencies.</h3>
+          <nav id="nav">
+            <ul class="nav-main">
+              <li><a href="#endpoints">Enpoints</a></li>
+              <li><a href="#examples">Examples </a></li>
+              <li><a href="https://github.com/russellramey/mdisvg" target="_blank">Github</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div id="overview">
+        <div class="container content-section">
+          <h2 class="section-title">Overview</h2>
+          <p>Material Design Icons (MDI) as SVG is a simple api that allows you to use any MDI icon with basic HTTP GET requests. Icons are available by using the MDI icon names as the requested URI. If you are not familiar with <a href="https://materialdesignicons.com/" target="_blank">Material Design Icons</a>, it is a very popular community driven icon font library for material design style icons, typically used by importing the library web fonts and css stylesheets or via an npm module.</p>
+          <p>This api allows you to use MDI icons in your project as an embed, svg, or json object. Created out of the need to quickly use icons in various existing projects with minimal overhead and the least amount of source changes possible. This api is a great resource for POCs, prototyping, and wireframing. If your project is going to utilize lots of svgs/icons, it may be better to include the MDI library and utilize the icons as the web font resource provided.</p>
+        </div>
+      </div>
+      <div id="search">
+        <div class="container content-section">
+          <div class="search-content">
+            <h4>Available Icons</h4>
+            <p>Supports all icons available with the current release of Material Design Icons</p>
+          </div>
+          <div class="search-action">
+            <p><a class="button" href="https://materialdesignicons.com/" target="_blank">Browse all available icons</a></p>
+            <p class="notice">You will be redirected to materialdesignicons.com.</p>
+          </div>
+        </div>
+      </div>
+      <div id="endpoints">
+        <div class="container content-section">
+          <h2 class="section-title">Endpoints</h2>
+          <p>There are two primary endpoints, both endpoints use the icon name from Material Design Icons library to request icons. This API only supports GET requests. Endpoints have a versioning parameter to determine the MDI release to use for the icons source. Read more about endpoint <a href="#versions">versions</a>.</p>
+          <h4>/v1/i/icon-name</h4>
+          <pre><code><span class="comment">// Basic request</span><br><span class="code">https://api.mdisvg.com/v1/i/ICON-NAME</span></code></pre>
+          <p><i>icon-name</i> is the class name that MDI uses in its library. Read more about the icons available in the Material Design Icons <a href="https://materialdesignicons.com/" target="_blank">documentation</a>.</p><br>
+          <h4>/v1/json?data=json-object-string</h4>
+          <p>The format for a json request is a bit different. You can get multiple icons by passing in a JSON object string as the <i>data</i> parameter. The JSON object needs to be an array of icon objects with two properties:</p>
+          <ul>
+            <li><i>icon</i>: The icon name (ex. 'account', required)</li>
+            <li><i>color</i>: Icon color by hex value (ex. '3399cc', optional)</li>
+            <li><i>size</i>: Icon size in pixels via integer (ex. '100', optional)</li>
+          </ul>
+          <pre><code><span class="comment">// JSON icon object structure</span><br><span class="code">[{ 'icon': 'icon-name', 'color': 'hex-code', 'size': 144 }, ...ect]</span><br><br><span class="comment">// Request multiple icons</span><br><span class="code">https://api.mdisvg.com/v1/json?data=JSON-OBJECT-STRING</span></code></pre>
+          <p>It is important to note, the JSON object needs to be as a string (stringified).</p>
+        </div>
+      </div>
+      <div id="examples">
+        <div class="container content-section">
+          <h2 class="section-title">Examples</h2>
+          <p>There are three ways to interact with this API service - request the icon as an image/object/embed, request the icon as an svg, or request the icon as a JSON object.</p><br>
+          <h4>Embedded SVG</h4>
+          <p>Use an icon as an image source direclty. The easiest way to utilize this service is to simply use the api endpoint as the source attribute for an image tag.</p>
+          <pre><code><span class="comment">// Image source</span><br><span class="code">&lt;img src="https://api.mdisvg.com/v1/i/account" width="100" height="100" /&gt;</span><br></code></pre>
+          <p>Change the fill color of the icon. You can use the <i>color</i> parameter with any hex value to return an icon with a different color. The <i>color</i> parameter supports a valid color hex code.</p>
+          <pre><code><span class="comment">// Change the color by passing the <i>color</i> parameter</span><br><span class="comment">// Change the size by passing the <i>size</i> parameter</span><br><span class="code">&lt;img src="https://api.mdisvg.com/v1/i/account?color="3399cc&size=144"" width="auto" height="auto" /&gt;</span><br></code></pre>
+          <h5>Embedded SVG example:</h5>
+          <p><img src="https://api.mdisvg.com/v1/i/account" width="100" height="100"></p><br>
+          <h4>Inline SVG</h4>
+          <p>If you want to use the icon as an inline svg, you can use the javascript loader function. This is an easy way to automatically load multiple icons dynamically.</p>
+          <ul> 
+            <li>First, create an HTML element and give it a <i>data-mdisvg</i> attribute set to icon name from the MDI icon library.</li>
+            <li>Optionally, you can set a <i>data-mdicolor</i> attribute with a hex color code.</li>
+            <li>Optionally, you can set a <i>data-mdisize</i> attribute with a positive integer.</li>
+            <li>Lastly, include a <i>script</i> tag in the body of the document, with the source attribute set to the <i>/loader</i> endpoint.</li>
+          </ul>
+          <pre><code><span class="comment">// Element with custom data attribues</span><br><span class="comment">// data-mdisvg attribute, required</span><br><span class="comment">// data-mdicolor & data-mdisize attributes, optional</span><br><span class="code">&lt;span data-mdisvg="account" data-mdicolor="3399cc" data-mdisize="144"&gt;&lt;/span&gt;</span><br><br><span class="comment">// Include the loader script within the body</span><br><span class="code">&lt;script src="https://api.mdisvg.com/loader"&gt;&lt;/script&gt;</span></code></pre>
+          <p>The loader function will find all elements that contain a <i>data-mdisvg</i> attribute, create a JSON object of icon elements, and make a request to the api. The contents of the <i>data-mdicolor</i> element will be replaced with the inline svg code returned. From there it can be manipulated directly via css or javascript, allowing you to change size, colors, or add animation/transitions.</p>
+          <h5>Inline SVG example:</h5><span data-mdisvg="cog" data-mdicolor="000000"></span>
+<span data-mdisvg="comment" data-mdicolor="e50000"></span>
+<span data-mdisvg="thumb-up" data-mdicolor="3399cc"></span><br><br><br>
+          <h4>JSON</h4>
+          <p>Request multiple icons as a JSON object. This endpoint is also referenced automatically by the provided <i>/loader</i> endpoint.</p>
+          <pre><code><span class="comment">// Make a GET request</span><br><span class="code">https://api.mdisvg.com/v1/json?data=[{"icon":"account","color":"000000"},{"icon":"account-plus","color":"e50000"},{"icon":"account-cog","color":"3399cc"}]</span><br><br><span class="comment">// JSON response</span><br><span>[{</span><br><span>&nbsp;&nbsp;&nbsp; "name": "account" <br></span><span>&nbsp;&nbsp;&nbsp; "attributes": { <br></span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "color": "000000", <br></span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "unicode": "#xf0004;", <br></span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "path": "M256 363q35 0 60 -25t25 -60.5t-25 -60.5t-60 -25t-60 25t-25 60.5t25 60.5t60 25zM256 149q46 0 85.5 -11.5t62.5 -31t23 -42.5v-43h-342v43q0 23 23 42.5t62.5 31t85.5 11.5z" <br></span><span>&nbsp;&nbsp;&nbsp; } <br></span><span>&nbsp;&nbsp;&nbsp; "rendered": "&lt;svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"100\" height=\"100\" viewBox=\"0 64.7273 512 448.462\"&gt;&lt;g transform=\"scale(1,-1) translate(0, -480.36365)\"&gt;&lt;path data-glyph=\"account\" fill=\"#000000\" d=\"M256 363q35 0 60 -25t25 -60.5t-25 -60.5t-60 -25t-60 25t-25 60.5t25 60.5t60 25zM256 149q46 0 85.5 -11.5t62.5 -31t23 -42.5v-43h-342v43q0 23 23 42.5t62.5 31t85.5 11.5z\"/&gt;&lt;/g&gt;&lt;/svg&gt;"</span><br><span>}, ...]</span></code></pre>
+        </div>
+      </div>
+      <div id="versions">
+        <div class="container content-section">
+          <h2>Versions</h2>
+          <p>Endpoint versioning will be used to update the available icon selections, based on releases from the Material Design Icons font. The list below will show the current API version with the correspoinding release version of the MDI icon set. If you are staring a new project, using the lates version is recommended.</p>
+          <pre><code><span class="comment">// Version usage in endpoints</span><br><span class="code">https://api.mdisvg.com/<b>v1</b>/i/account</span><br></code></pre>
+          <ul> 
+            <li>
+              <p><b>v1</b>: Material Design Icons v6.5.95</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="footer">
+        <div class="container content-section">
+          <h2>Credits</h2>
+          <p>Icons provided by <a href="https://materialdesignicons.com/" target="_blank">Material Design Icons</a>, licensed under <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0</a>, and are unmodified from the official release. This API was not created, and is not managed by the creators of Material Design Icons.</p><br>
+          <h2>Support</h2>
+          <p>MDISVG is open source and available on Github. To report a bug, ask a question, feature request, or other inquries, create an issue on the <a href="https://github.com/russellramey/mdisvg" target="_blank">repository</a>.</p>
+        </div>
+      </div>
+    </div>
+    <script src="js/app.js"></script>
+    <script src="https://api.mdisvg.com/loader"></script>
+  </body>
+</html>
