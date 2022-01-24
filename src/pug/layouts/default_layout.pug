@@ -11,6 +11,13 @@ html(lang='en')
         block title
         link(href="css/style.css" rel="stylesheet")
         link(rel="icon" type="image/svg" href="https://api.mdisvg.com/v1/i/crop-free?color=fff")
+        
+        script(async src="https://www.googletagmanager.com/gtag/js?id=G-8ZTQYHPH74")
+        script. 
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-8ZTQYHPH74');
     body
 
         .wrapper
