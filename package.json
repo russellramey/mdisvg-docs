@@ -1,36 +1,39 @@
 {
-  "name": "fa-svg-landing",
-  "version": "1.0.0",
-  "description": "Landing page for FA-SVG api. Font Awesome as SVG's.",
-  "main": "index.js",
-  "scripts": {
-    "start": "npm run build:dev",
-    "build:dev": "npm run clear:build && grunt",
-    "build:prod": "npm run clear:build && NODE_ENV=production grunt",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "standard-version",
-    "clear:build": "rimraf dist"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:russellramey/fa-svg-landing.git"
-  },
-  "author": "Russell Ramey",
-  "license": "MIT",
-  "dependencies": {
-    "babel-core": "^6.26.0",
-    "babel-minify": "^0.5.0",
-    "babel-preset-env": "^1.7.0",
-    "grunt": "^1.4.1",
-    "grunt-babel": "^7.0.0",
-    "grunt-browser-sync": "^2.2.0",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-cssmin": "^2.2.1",
-    "grunt-contrib-imagemin": "^2.0.1",
-    "grunt-contrib-pug": "^1.0.0",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-sass": "^2.0.0",
-    "rimraf": "^2.6.2",
-    "standard-version": "^4.2.0"
-  }
+    "name": "fa-svg-landing",
+    "version": "1.0.0",
+    "description": "Landing page for FA-SVG api. Font Awesome as SVG's.",
+    "main": "index.js",
+    "scripts": {
+        "start": "npm run build:dev",
+        "build:dev": "npm run clear:build && grunt",
+        "build:prod": "npm run clear:build && NODE_ENV=production grunt",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "release": "standard-version",
+        "clear:build": "rimraf dist"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:russellramey/fa-svg-landing.git"
+    },
+    "author": "Russell Ramey",
+    "license": "MIT",
+    "dependencies": {
+        "babel-core": "^6.26.0",
+        "babel-minify": "^0.5.0",
+        "babel-preset-env": "^1.7.0",
+        "grunt": "^1.4.1",
+        "grunt-babel": "^7.0.0",
+        "grunt-browser-sync": "^2.2.0",
+        "grunt-contrib-copy": "^1.0.0",
+        "grunt-contrib-cssmin": "^2.2.1",
+        "grunt-contrib-imagemin": "^2.0.1",
+        "grunt-contrib-pug": "^1.0.0",
+        "grunt-contrib-watch": "^1.0.0",
+        "grunt-sass": "^2.0.0",
+        "rimraf": "^2.6.2",
+        "standard-version": "^4.2.0"
+    },
+    "scripts": {
+        "deploy": "git push origin `git subtree split --prefix dist master`:gh-pages --force"
+    }
 }
